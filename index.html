@@ -3,302 +3,333 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Course Syllabus • Your Course Title</title>
-  <meta name="description" content="Course syllabus with clean navigation and sections. Ready for GitHub Pages." />
+  <title>Dr. Michael J. Salé • CV</title>
+  <meta name="description" content="Curriculum Vitae website for Dr. Michael J. Salé with clean navigation and print-friendly layout." />
   <style>
-    :root {
-      --bg: #0b0c10;
-      --card: #121318;
-      --text: #e8eef2;
-      --muted: #b8c2cc;
-      --link: #8ecae6;
-      --accent: #ffd166;
-      --border: #222632;
-      --good: #90ee90;
-      --warn: #ffcc66;
-      --bad: #ff9999;
+    :root{
+      --bg:#ffffff;           /* white */
+      --ink:#1f1147;          /* deep purple text */
+      --muted:#6b6b83;        /* gray-purple */
+      --primary:#7c3aed;      /* purple */
+      --primary-2:#a78bfa;    /* lighter purple */
+      --primary-3:#ede9fe;    /* very light purple */
+      --card:#faf7ff;         /* subtle purple-tint */
+      --border:#ece7ff;
+      --link:#5b21b6;
     }
-    [data-theme="light"] {
-      --bg: #f7fafc;
-      --card: #ffffff;
-      --text: #101316;
-      --muted: #4a5568;
-      --link: #1d4ed8;
-      --accent: #d97706;
-      --border: #e2e8f0;
-    }
-    html, body { height: 100%; }
-    body {
-      margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text); background: radial-gradient(1200px 800px at 20% -10%, rgba(255,209,102,0.07), transparent 60%),
-                                 radial-gradient(900px 600px at 120% 10%, rgba(142,202,230,0.06), transparent 60%),
-                                 var(--bg);
-    }
-    .container { display: grid; grid-template-columns: 260px 1fr; gap: 28px; max-width: 1200px; margin: 0 auto; padding: 24px; }
-    nav {
-      position: sticky; top: 16px; align-self: start; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
-      backdrop-filter: blur(6px); padding: 16px; border-radius: 16px;
-    }
-    .brand { font-weight: 700; font-size: 1.1rem; margin: 0 0 10px; }
-    .meta { font-size: .9rem; color: var(--muted); margin-bottom: 14px; }
-    .nav a { display: block; padding: 8px 10px; margin: 6px 0; border-radius: 10px; text-decoration: none; color: var(--text); border: 1px solid transparent; }
-    .nav a:hover { background: var(--card); border-color: var(--border); }
-    .nav a.active { background: rgba(142,202,230,0.12); border-color: rgba(142,202,230,0.35); color: var(--link); }
-    .toggle-row { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-top: 12px; }
+    html,body{height:100%}
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:var(--ink);background:linear-gradient(180deg,var(--primary-3),#fff 18%)}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    main { display: grid; gap: 22px; }
-    section { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0)); padding: 22px; border-radius: 16px; border: 1px solid var(--border); }
-    section h2 { margin: 0 0 6px; font-size: 1.4rem; }
-    section .subtitle { color: var(--muted); margin-bottom: 12px; font-size: .95rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+    /* Layout */
+    header.hero{position:relative;padding:56px 20px 32px;border-bottom:1px solid var(--border);background:radial-gradient(80% 120% at 10% -20%, rgba(124,58,237,.12), transparent),linear-gradient(0deg, #fff, #fff)}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-    .grid-2 { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .name{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 8px;font-weight:800;color:var(--primary)}
+    .title{margin:0;color:var(--ink);font-weight:600}
+    .meta{margin-top:12px;color:var(--muted)}
+    .meta a{margin-right:12px}
 
-    .key { color: var(--muted); font-size: .9rem; }
-    .pill { display: inline-block; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); font-size: .8rem; }
-    .kpi { font-weight: 700; }
+    /* Nav */
+    .topnav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);backdrop-filter:saturate(1.2) blur(6px)}
+    .topnav .nav{display:flex;gap:12px;max-width:1100px;margin:0 auto;padding:10px 20px;overflow:auto}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--card);padding:8px 12px;border-radius:999px;white-space:nowrap}
+    .chip.active{border-color:var(--primary-2);box-shadow:0 0 0 3px var(--primary-3)}
 
-    details { border: 1px dashed var(--border); border-radius: 12px; padding: 10px 12px; background: rgba(255,255,255,0.02); }
-    details summary { cursor: pointer; font-weight: 600; }
+    main{padding:28px 0}
+    section{scroll-margin-top:72px;margin:18px 0;padding:20px;border:1px solid var(--border);border-radius:14px;background:#fff}
+    section h2{margin:0 0 6px;color:var(--ink);font-size:1.35rem}
+    section .subtitle{color:var(--muted);margin-bottom:10px}
 
-    table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { text-align: left; color: var(--muted); font-weight: 600; }
-    tr:last-child td { border-bottom: none; }
+    .grid-2{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
 
-    code, pre { background: var(--card); border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px; }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+    ul.clean{padding-left:20px;margin:8px 0}
+    li+li{margin-top:6px}
 
-    .footer { text-align: center; color: var(--muted); font-size: .9rem; padding: 30px 0; }
+    table{width:100%;border-collapse:collapse}
+    th,td{border-bottom:1px solid var(--border);padding:8px;vertical-align:top}
+    th{text-align:left;color:var(--muted);font-weight:600}
+    tr:last-child td{border-bottom:none}
 
-    @media (max-width: 980px) {
-      .container { grid-template-columns: 1fr; }
-      nav { position: static; }
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    }
+    footer{color:var(--muted);text-align:center;padding:36px 0}
 
-    /* Print-friendly */
-    @media print {
-      nav { display:none; }
-      body { background: #fff; color: #000; }
-      section { border: none; background: none; padding: 0; }
+    /* Print */
+    @media print{
+      .topnav{display:none}
+      header.hero{padding:0 0 8px;background:#fff;border:none}
+      section{border:none;background:#fff;padding:0;margin:8px 0}
+      body{background:#fff}
+      a{text-decoration:underline}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav aria-label="Syllabus sections">
-      <h1 class="brand">Your Course Title</h1>
-      <div class="meta">Term • Room • Meeting Time</div>
-      <div class="nav" id="toc">
-        <!-- The JS below auto-creates these links from <section data-title> -->
-      </div>
-      <div class="toggle-row">
-        <button id="expandAll" class="pill" type="button">Expand all</button>
-        <button id="themeToggle" class="pill" type="button" aria-pressed="false">Light/Dark</button>
-      </div>
-      <div class="toggle-row">
-        <a class="pill" href="#download" title="Jump to downloads">Download</a>
-        <a class="pill" href="#schedule" title="Jump to schedule">Schedule</a>
-      </div>
-    </nav>
+  <header class="hero">
+    <div class="container">
+      <h1 class="name">Dr. Michael J. Salé</h1>
+      <p class="title">Educator • Technologist • Program Director</p>
+      <p class="meta">
+        Bridgewater, MA • <a href="mailto:msale@stonehill.edu">msale@stonehill.edu</a> • <a href="tel:+17818647627">(781) 864‑7627</a>
+        <br/>Leo J. Meehan School of Business, Stonehill College • 320 Washington St., Easton, MA 02357
+      </p>
+      <p class="meta">
+        <a class="chip" href="./cv.pdf" download>Download PDF</a>
+        <a class="chip" href="#education">Education</a>
+        <a class="chip" href="#teaching">Teaching</a>
+        <a class="chip" href="#experience">Experience</a>
+        <a class="chip" href="#skills">Skills</a>
+        <a class="chip" href="#publications">Publications</a>
+        <a class="chip" href="#presentations">Presentations</a>
+        <a class="chip" href="#activities">Activities</a>
+        <a class="chip" href="#service">Service</a>
+      </p>
+    </div>
+  </header>
 
-    <main id="main">
-      <!-- ✨ Replace placeholder content with your actual syllabus text. -->
+  <nav class="topnav" aria-label="Sections">
+    <div class="nav" id="nav">
+      <a class="chip" href="#education">Education</a>
+      <a class="chip" href="#teaching">Teaching</a>
+      <a class="chip" href="#experience">Work Experience</a>
+      <a class="chip" href="#skills">Technical Skills</a>
+      <a class="chip" href="#publications">Publications</a>
+      <a class="chip" href="#presentations">Conferences</a>
+      <a class="chip" href="#activities">Professional Activities</a>
+      <a class="chip" href="#service">Memberships & Service</a>
+      <a class="chip" href="#contact">Contact</a>
+    </div>
+  </nav>
 
-      <section id="overview" data-title="Overview">
-        <h2>Overview</h2>
-        <div class="subtitle">What this course is about and why it matters.</div>
-        <p><strong>Course:</strong> MGT 101 — First‑Year Business Experience (example — edit me)</p>
-        <p><strong>Instructor:</strong> Dr. Michael J. Salé • <a href="mailto:your.email@stonehill.edu">your.email@stonehill.edu</a></p>
-        <p><strong>Meeting:</strong> Tue/Thu 9:30–10:45 • Meehan Hall 201 • <span class="pill">15 weeks</span></p>
-        <p>Use this intro to set expectations and connect the course to student goals. Keep it short; the details live in the sections below.</p>
-      </section>
+  <main class="container">
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education & Certifications</h2>
+      <ul class="clean">
+        <li><strong>Doctor of Professional Studies in Computing (DPS)</strong>, Pace University, 2017<br/>
+          <em>Dissertation</em>: A Heuristic for Improving Legacy Software Quality During Maintenance: An Empirical Case Study
+        </li>
+        <li><strong>M.S. in Management</strong> (Technology Management), Bridgewater State College, 2005</li>
+        <li><strong>B.S. in Management</strong> (Information Systems), Bridgewater State College, 2003 • <em>Summa Cum Laude</em></li>
+      </ul>
+    </section>
 
-      <section id="instructor" data-title="Instructor & Contact">
-        <h2>Instructor & Contact</h2>
-        <div class="grid-2">
-          <div class="card">
-            <p class="key">Instructor</p>
-            <p class="kpi">Dr. Michael J. Salé</p>
-            <p>Office: Meehan Hall 2nd Floor • Office Hours: Mon 2–4, Thu 1–3 (or by appt.)</p>
-            <p>Email: <a href="mailto:your.email@stonehill.edu">your.email@stonehill.edu</a> • Teams: @MichaelSalé</p>
-          </div>
-          <div class="card">
-            <p class="key">TA / Learning Assistant</p>
-            <p class="kpi">Name Surname</p>
-            <p>Office hours: Wed 3–4 in Learning Lab • Email: <a href="mailto:la@stonehill.edu">la@stonehill.edu</a></p>
-          </div>
+    <!-- TEACHING -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <div class="subtitle">Stonehill College • Bridgewater State University</div>
+      <div class="grid-2">
+        <div class="card">
+          <strong>Stonehill College, Business Administration</strong> — 2014–Present (Assistant Professor; MIS Program Director)
+          <ul class="clean">
+            <li>Quantitative Analysis (UG)</li>
+            <li>Decision Support Systems & Business Intelligence (UG)</li>
+            <li>Data Communications, Networking, & Security (UG)</li>
+            <li>First Year Business Experience (UG)</li>
+            <li>Project Management (UG)</li>
+            <li>Computer Science Capstone: Software Engineering (co‑taught) (UG)</li>
+            <li>Directed Study & Independent Research Advisor</li>
+          </ul>
         </div>
-      </section>
-
-      <section id="outcomes" data-title="Learning Outcomes">
-        <h2>Learning Outcomes</h2>
-        <ul>
-          <li>Understand and articulate key concepts in <em>course domain</em>.</li>
-          <li>Apply concepts to analyze real‑world business scenarios.</li>
-          <li>Communicate findings effectively in writing and presentations.</li>
-          <li>Collaborate professionally in teams.</li>
-        </ul>
-      </section>
-
-      <section id="materials" data-title="Texts & Materials">
-        <h2>Texts & Materials</h2>
-        <ul>
-          <li><strong>Main text:</strong> Nelson, <em>The Analytics Lifecycle Toolkit</em> (or your text).</li>
-          <li><strong>Cases:</strong> HBS coursepack (see Canvas).</li>
-          <li><strong>Software:</strong> Microsoft 365, SAS Studio, Excel certification (as applicable).</li>
-        </ul>
-      </section>
-
-      <section id="schedule" data-title="Weekly Schedule">
-        <h2>Weekly Schedule</h2>
-        <div class="subtitle">Subject to adjustment; check Canvas for live updates.</div>
-        <table aria-describedby="schedule">
-          <thead>
-            <tr><th>Week</th><th>Topics</th><th>Read/Watch</th><th>Due</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td>Intro to the course; agreements</td><td>Syllabus; Nelson Ch.1</td><td>Sign class pact</td></tr>
-            <tr><td>2</td><td>Data strategy</td><td>Nelson Ch.4</td><td>Reflection 1</td></tr>
-            <tr><td>3</td><td>Change & Fearless Patterns</td><td>Manns keynote</td><td>Quiz 1</td></tr>
-            <!-- Add more rows -->
-          </tbody>
-        </table>
-      </section>
-
-      <section id="assignments" data-title="Assignments & Deliverables">
-        <h2>Assignments & Deliverables</h2>
-        <details open>
-          <summary>Case Analysis (25%)</summary>
-          <p>Short write‑ups using provided template. Submit via Canvas.</p>
-        </details>
-        <details>
-          <summary>Presentation + Addendum (25%)</summary>
-          <p>15‑minute group presentation, 2‑page addendum, and a 5‑question quiz (Microsoft Forms).</p>
-        </details>
-        <details>
-          <summary>Final Reflection (20%)</summary>
-          <p>Personal synthesis connecting course themes to your pathway.</p>
-        </details>
-      </section>
-
-      <section id="grading" data-title="Grading">
-        <h2>Grading</h2>
-        <table>
-          <tbody>
-            <tr><th>Participation</th><td>15%</td></tr>
-            <tr><th>Assignments</th><td>45%</td></tr>
-            <tr><th>Quizzes</th><td>20%</td></tr>
-            <tr><th>Final</th><td>20%</td></tr>
-          </tbody>
-        </table>
-        <p class="key">Scale: A = 93–100, A‑ = 90–92, B+ = 87–89, …</p>
-      </section>
-
-      <section id="policies" data-title="Policies">
-        <h2>Policies</h2>
-        <ul>
-          <li><strong>Attendance:</strong> Be present and on time; notify in advance when possible.</li>
-          <li><strong>Tech use:</strong> Laptops for notes/code only; phones put away unless approved.</li>
-          <li><strong>Late work:</strong> Accepted up to 48 hours with penalty unless arranged.</li>
-          <li><strong>Academic integrity:</strong> Follow the Stonehill Honor Code.</li>
-          <li><strong>Accessibility:</strong> Accommodations available; contact Accessibility Resources.</li>
-        </ul>
-      </section>
-
-      <section id="support" data-title="Support & Resources">
-        <h2>Support & Resources</h2>
-        <div class="grid-3">
-          <div class="card"><strong>Learning Lab</strong><br/>Tutoring & skill hubs.</div>
-          <div class="card"><strong>Career Development</strong><br/>Workshops, advising, networking.</div>
-          <div class="card"><strong>Library</strong><br/>Research help, databases, workshops.</div>
+        <div class="card">
+          <strong>Stonehill College (Part‑Time Faculty)</strong> — 2007–2014
+          <ul class="clean"><li>Quantitative Analysis (UG)</li></ul>
+          <strong>Bridgewater State University, School of Business</strong> — 2005–Present (Visiting Lecturer)
+          <ul class="clean">
+            <li>Strategic Management of Technological Innovation (Grad)</li>
+            <li>Fundamentals of Information Systems (UG)</li>
+            <li>Business Data Processing (UG)</li>
+            <li>Statistical Process Control (UG)</li>
+            <li>Service Operations Management (UG)</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="download" data-title="Downloads & Print">
-        <h2>Downloads & Print</h2>
-        <p>
-          <!-- Replace the href with your actual syllabus PDF once added to the repo root. -->
-          <a id="pdfLink" href="./syllabus.pdf" download>Download PDF Syllabus</a>
-          · <a href="#" onclick="window.print(); return false;">Print this page</a>
-        </p>
-        <details>
-          <summary>How to host on GitHub Pages</summary>
-          <ol>
-            <li>Create a new public repo named <code>syllabus-site</code> (or any name).</li>
-            <li>Add this file as <code>index.html</code> and your <code>syllabus.pdf</code> to the repo root.</li>
-            <li>Settings → Pages → Deploy from <em>main</em> branch, root. Your site will be live at <code>https://&lt;username&gt;.github.io/syllabus-site/</code>.</li>
-          </ol>
-        </details>
-      </section>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <div class="grid-2">
+        <div class="card">
+          <strong>Consultant</strong> — Portico Consulting Group • 2003–Present<br/>
+          IT consulting & project management for higher education; Agile software development training.
+        </div>
+        <div class="card">
+          <strong>Partner / Co‑Founder</strong> — FuzeSPACE, LLC • 2011–2015<br/>
+          Co‑founded and led systems development for an online social networking platform.
+        </div>
+        <div class="card">
+          <strong>Director of Implementations & Training / Hosted Services Manager</strong> — Adirondack Solutions, Inc. • 2005–2014
+          <ul class="clean">
+            <li>Led enterprise implementations across higher‑ed; supervised functional & technical PMs.</li>
+            <li>Integrated with Banner, PowerCampus, PeopleSoft, Jenzabar, Blackboard Transact, etc.</li>
+            <li>Designed client training; built and maintained hosted/cloud solutions.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Graduate Assistant</strong> — Student Affairs, Bridgewater State College • 2004
+          <ul class="clean">
+            <li>Evaluated technology needs; built web solutions (scholarship DB, insurance tracking, service portal).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Web Developer</strong> — Web Services, Bridgewater State College • 2003–2004<br/>
+          Built intranet and web‑database apps for campus divisions.
+        </div>
+        <div class="card">
+          <strong>Student Technology Training Supervisor</strong> — Help Desk, Bridgewater State College • 2001–2003
+          <ul class="clean">
+            <li>Managed workshop program; trained six student trainers; authored 500‑page tech manuals.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>User Support Consultant</strong> — Help Desk, Bridgewater State College • 1999–2002
+          <ul class="clean">
+            <li>Front‑line support for >12,000 users; on‑site services; exec presentation support.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <section id="fulltext" data-title="Full Syllabus Text (Optional)">
-        <h2>Full Syllabus Text (Optional)</h2>
-        <p class="subtitle">Paste the full text here for searchability; keep the curated sections above for readability.</p>
-        <pre>
-<!-- Paste your syllabus text here. Tip: If you exported a PDF, include a clean .txt version for accessibility. -->
-        </pre>
-      </section>
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="grid-3">
+        <div class="card">
+          <strong>Platforms</strong>
+          <ul class="clean">
+            <li>Windows (server & desktop), macOS</li>
+            <li>VMWare, VMSphere, Citrix</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Enterprise & PM</strong>
+          <ul class="clean">
+            <li>Banner, PowerCampus</li>
+            <li>MS Project, Basecamp</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Development</strong>
+          <ul class="clean">
+            <li>SQL, ColdFusion (CFML), HTML, jQuery</li>
+            <li>jUnit, IntelliJ, LDAP, Active Directory</li>
+            <li>SQL Server, Oracle, Exchange, SVN, Git</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <footer class="footer">© <span id="year"></span> Your Name • Stonehill College</footer>
-    </main>
-  </div>
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul class="clean">
+        <li>M. Salé &amp; R. Wolk, “Measuring Innovation: A Comprehensive Audit,” <em>Information Systems Educators Journal</em> (2004, 2005, 2006).</li>
+      </ul>
+    </section>
+
+    <!-- PRESENTATIONS -->
+    <section id="presentations">
+      <h2>Conference Presentations & Proceedings</h2>
+      <ul class="clean">
+        <li>“A Case Study on Improving Quality During Legacy Software Maintenance Using a Heuristic,” Michael L. Gargano 15th Annual Research Day (2017).</li>
+        <li>“Big Data: A Foundational Explanation,” Michael L. Gargano 13th Annual Research Day (2015).</li>
+        <li>“Big Data Machine Learning Algorithms,” Michael L. Gargano 13th Annual Research Day (2015).</li>
+        <li>“An Agile Approach to Doctoral Research and Dissertations,” Michael L. Gargano 12th Annual Research Day (2014).</li>
+      </ul>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section id="activities">
+      <h2>Professional Activities</h2>
+      <div class="grid-2">
+        <div class="card">
+          <strong>Conferences & Continuing Education</strong>
+          <ul class="clean">
+            <li>New England Isolated Statisticians Meeting (2013, 2015, 2016 — co‑chair of host committee)</li>
+            <li>DataFest (2017) — host committee member</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Memberships</strong>
+          <ul class="clean">
+            <li>Academy of Management; Agile Alliance; American Statistical Association</li>
+            <li>Association for Computing Machinery; Association of IT Professionals</li>
+            <li>Decision Sciences Institute</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section id="service">
+      <h2>Stonehill College & Community Service</h2>
+      <div class="grid-2">
+        <div class="card">
+          <strong>Business Department</strong>
+          <ul class="clean">
+            <li>AACSB Assurance of Learning Committee (2014–present)</li>
+            <li>AACSB Ethics Sub‑committee (2014–2016)</li>
+            <li>AACSB Business Literacy Sub‑committee (2017–present)</li>
+            <li>Business Administration Curriculum Committee (2014–present)</li>
+            <li>Director: MIS Minor (2014–present); MIS Major Concentration (2017–present)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>College & Community</strong>
+          <ul class="clean">
+            <li>Board Member, Digital Innovation Lab (2016–present)</li>
+            <li>Data Science Steering Committee (2016–present)</li>
+            <li>Student Bible Study Group Organizer (2014–present)</li>
+            <li>Data Analytics Task Force (2016)</li>
+            <li>Hiring Committees: Director of Educational Technology (2015); Interim Director of Moreau Honors (2015)</li>
+            <li>Technology Advisory Committee (2014–present); Residence Life Community Associate (2014–2015)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <table>
+        <tr><th>Email</th><td><a href="mailto:msale@stonehill.edu">msale@stonehill.edu</a></td></tr>
+        <tr><th>Mobile</th><td><a href="tel:+17818647627">(781) 864‑7627</a></td></tr>
+        <tr><th>Address</th><td>Leo J. Meehan School of Business, Stonehill College, 320 Washington Street, Easton, MA 02357</td></tr>
+        <tr><th>Download</th><td><a href="./cv.pdf" download>Download full CV (PDF)</a></td></tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Michael J. Salé • Built with ♡ in purple & white.
+  </footer>
 
   <script>
-    // Build Table of Contents from sections
-    const toc = document.getElementById('toc');
-    const sections = [...document.querySelectorAll('main section')];
-    sections.forEach(sec => {
-      const t = sec.dataset.title || sec.querySelector('h2')?.textContent || sec.id;
-      const a = document.createElement('a');
-      a.href = `#${sec.id}`; a.textContent = t; a.setAttribute('data-target', sec.id);
-      toc.appendChild(a);
-    });
-
-    // Active link on scroll
-    const setActive = () => {
-      let idx = 0;
-      const fromTop = window.scrollY + 120;
-      sections.forEach((sec, i) => { if (sec.offsetTop <= fromTop) idx = i; });
-      [...toc.querySelectorAll('a')].forEach((a, i) => a.classList.toggle('active', i === idx));
+    // Active nav chip highlighting
+    const chips=[...document.querySelectorAll('.topnav .chip')];
+    const sections=[...document.querySelectorAll('main section')];
+    const onscroll=()=>{
+      const y=window.scrollY+90; let idx=0;
+      sections.forEach((s,i)=>{ if(s.offsetTop<=y) idx=i; });
+      chips.forEach((c,i)=>c.classList.toggle('active',i===idx));
     };
-    document.addEventListener('scroll', setActive, { passive: true });
-    setActive();
+    document.addEventListener('scroll',onscroll,{passive:true});
+    onscroll();
 
-    // Expand/collapse all <details>
-    document.getElementById('expandAll').addEventListener('click', () => {
-      const all = document.querySelectorAll('details');
-      const anyClosed = [...all].some(d => !d.open);
-      all.forEach(d => d.open = anyClosed);
-    });
-
-    // Theme toggle (persist to localStorage)
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const saved = localStorage.getItem('syllabus-theme');
-    if (saved) root.setAttribute('data-theme', saved);
-    themeToggle.addEventListener('click', () => {
-      const cur = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', cur);
-      localStorage.setItem('syllabus-theme', cur);
-      themeToggle.setAttribute('aria-pressed', cur === 'light');
-    });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth-scroll (native CSS also works, but this helps legacy browsers)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const id = this.getAttribute('href').slice(1);
-        const target = document.getElementById(id);
-        if (!target) return;
-        e.preventDefault();
-        window.scrollTo({ top: target.offsetTop - 12, behavior: 'smooth' });
-        history.pushState(null, '', `#${id}`);
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href').slice(1); const t=document.getElementById(id); if(!t) return;
+        e.preventDefault(); window.scrollTo({top:t.offsetTop-70,behavior:'smooth'}); history.pushState(null,'',`#${id}`);
       });
     });
+
+    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
